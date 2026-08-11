@@ -8,13 +8,13 @@ An LSPosed module that hides ADB and developer-mode settings from apps while kee
 | Wireless debugging | Disabled |
 | Developer options | Disabled |
 
-AdbHide runs in Android System and does not load code into the apps performing these checks.
+AdbHide runs in Android System and does not load code into an apps.
 
 ## Install
 
 1. Install the APK.
 2. Enable AdbHide in LSPosed.
-3. Select **Android System** as the only scope.
+3. Select **System Framework** as the only scope (Do not select any target apps).
 4. Reboot.
 
 Requires Android 8.0 or newer and a working LSPosed installation. The correct scope is suggested automatically.
