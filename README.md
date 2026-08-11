@@ -17,7 +17,7 @@ AdbHide runs in Android System and does not load code into an apps.
 3. Select **System Framework** as the only scope (Do not select any target apps).
 4. Reboot.
 
-Requires Android 8.0 or newer and a working LSPosed installation. The correct scope is suggested automatically.
+Requires Android 8.0+ and a working LSPosed installation.
 
 ## Build
 
