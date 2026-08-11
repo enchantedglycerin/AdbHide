@@ -1,0 +1,5 @@
+# Normalize line endings. Keep gradlew LF so it runs on Linux/macOS.
+* text=auto eol=lf
+*.bat text eol=crlf
+gradlew text eol=lf
+*.jar binary

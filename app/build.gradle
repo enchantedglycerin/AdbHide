@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.adbhide'
+    // Java-only LSPosed module. No native lib, no assets/native_init — so LSPosed
+    // never sets up a native bridge and nothing is injected into any target app.
+    // The single job: a pure Xposed Java hook on SettingsProvider inside
+    // system_server that returns adb_enabled/development_settings_enabled = 0 to
+    // app callers, keeping the real value for system/adbd (adb stays working).
+    compileSdk 33
+
+    defaultConfig {
+        applicationId 'com.adbhide'
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}

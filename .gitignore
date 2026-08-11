@@ -1,0 +1,22 @@
+# Gradle / build output
+.gradle/
+build/
+*/build/
+app/build/
+
+# Native build cache (none in this Java-only module, but just in case)
+.cxx/
+
+# Machine-specific
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+captures/
+
+# OS
+.DS_Store
+Thumbs.db
