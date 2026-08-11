@@ -1,0 +1,41 @@
+# AdbHide
+
+An LSPosed module that hides ADB and developer-mode settings from apps while keeping USB debugging available.
+
+| Check | Result seen by apps |
+| --- | --- |
+| USB debugging | Disabled |
+| Wireless debugging | Disabled |
+| Developer options | Disabled |
+| Actual ADB connection | Stays active |
+
+AdbHide runs in Android System and does not load code into the apps performing these checks.
+
+## Install
+
+1. Install the APK.
+2. Enable AdbHide in LSPosed.
+3. Select **Android System** as the only scope.
+4. Reboot.
+
+Requires Android 8.0 or newer and a working LSPosed installation. The correct scope is suggested automatically.
+
+## Build
+
+JDK 17 and the Android SDK are required.
+
+```sh
+./gradlew assembleDebug
+```
+
+On Windows, use `gradlew.bat assembleDebug`. The APK will be in `app/build/outputs/apk/debug/`.
+
+## Limitations
+
+AdbHide only changes values returned by Android's settings provider. It does not hide root, system properties, processes, ports, or other signs of a modified device.
+
+Compatibility may vary on heavily modified Android builds.
+
+## License
+
+[MIT](LICENSE)
