@@ -11,7 +11,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Global adb/dev-mode hider. Scope to Android System (system_server): returns adb_enabled/development_settings_enabled=0 to all apps while adb/system keep the real value. No injection into target apps." />
+            android:value="Hides ADB and developer options from apps without disabling USB debugging." />
         <meta-data
             android:name="xposedminversion"
             android:value="82" />
