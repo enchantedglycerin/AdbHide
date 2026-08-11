@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default scope hint for the LSPosed manager: system_server only. -->
+    <string-array name="xposed_scope">
+        <item>android</item>
+    </string-array>
+</resources>
