@@ -2,6 +2,12 @@ plugins {
     id 'com.android.application'
 }
 
+// Release signing — reads keystore.properties (gitignored). If absent, the
+// release build falls back to unsigned (debug still works without it).
+def keystorePropsFile = rootProject.file("keystore.properties")
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) { keystoreProps.load(new FileInputStream(keystorePropsFile)) }
+
 android {
     namespace 'com.adbhide'
     // Java-only LSPosed module. No native lib, no assets/native_init — so LSPosed
@@ -19,9 +25,22 @@ android {
         versionName '1.0'
     }
 
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            if (keystorePropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {

@@ -20,3 +20,8 @@ captures/
 # OS
 .DS_Store
 Thumbs.db
+
+# Signing secrets — NEVER commit
+keystore.properties
+*.jks
+*.keystore
